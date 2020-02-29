@@ -1,23 +1,70 @@
 <html>
 <head>
 <link rel='stylesheet' href="{{url_for('static', filename='css/main.css')}}">
+
+	<script>
+	var solution_var = '{{solution}}';
+	</script>
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<style>
+#fa-check:before {
+    content: "\f00c";
+}
+#fa-close:before {
+    content: "\f00d";
+}
+
+</style>
 </head>
 
 <body>
-	<h1 style='margin:1em; text-align:center'>AnarGame</h1>
+<div class="rowmain">
+	<div class='column'>
+		<p style="float: left;">Created for:</p><img src="{{url_for('static', filename='images/kemuri_logo.png')}}" />
+	</div>
+	
+	<div  class="column" style='border: 1px solid grey;margin-top: 10px;'>
+	
+		<br><br>
+		<label style="display: inline; border-color: white;background-color: #008CBA;color: white">Anagram puzzle</label>
+		<br><br><br><br><br>
+		
+		<label>Puzzle word  <i class='fa fa-arrow-circle-right'></i></label>
+		&nbsp;
+		<label style="font-weight: 700;">{{puzzle}}</label>
+		<br><br>
 
-	<label>{{puzzle}}</label><br>
-
-	<form action="/" method="POST">
-	  <label for="answer">Your answer</label><br>
-	  <input type="text" id="answer" name="answer" placeholder="answer">
-	  <input type="submit" value="Submit">
-	</form>
-	||
-	<form action="/" method="POST" name='solution_form'>
-		<label>{{filename}}</label><br>
-		<input type="submit" value="Solution">
-	</form>
+		<form action="/" method="POST"  class="col-75" autocomplete="off">
+		  <input type="text" id="answer" name="answer" placeholder=" Your answer {{placeholder_parm}}" required>
+		  <input type="submit" value="Submit">
+		</form>
+	
+		<div class="row" style='display: inline-flex;'>
+		
+		<div class="col-75">
+			<form action="/" method="GET" name='new_puzzle'  class="col-75" style="display: inline;">
+			  <input type="submit" id='submit' value="New puzzle">
+			</form>
+		&nbsp;&nbsp;	
+			
+				<input type="submit" value='Solution'  onclick="alert('Solution: {{solution}}'); document.getElementById('submit').click();" />
+		&nbsp;&nbsp;	
+				<!-- <button value='Solution' onclick="alert('Solution: {{solution}} ')">Solution</button>-->
+				<!--<label {{status_style}} >{{status}}</label>-->
+				
+				<label class='fa' {{status_style}} {{status}} />
+				
+			
+			</div>
+			
+		</div>
+	</div>
+	
+	<div class='column'></div>
+</div>
+	
 </body>
 
 </html>
+
