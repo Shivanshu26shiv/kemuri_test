@@ -1,0 +1,23 @@
+<html>
+<head>
+<link rel='stylesheet' href="{{url_for('static', filename='css/main.css')}}">
+</head>
+
+<body>
+	<h1 style='margin:1em; text-align:center'>AnarGame</h1>
+
+	<label>{{puzzle}}</label><br>
+
+	<form action="/" method="POST">
+	  <label for="answer">Your answer</label><br>
+	  <input type="text" id="answer" name="answer" placeholder="answer">
+	  <input type="submit" value="Submit">
+	</form>
+	||
+	<form action="/" method="POST" name='solution_form'>
+		<label>{{filename}}</label><br>
+		<input type="submit" value="Solution">
+	</form>
+</body>
+
+</html>
