@@ -12,7 +12,7 @@
 <h3>Sample screenshots:</h3>
 
 <p align="center">
-  <img src="anagram_test.png" style="border:1px solid black" title="Sample image for Kemuri test" alt="Sample image for Kemuri test">
+  <img src="anagram_test_1.png" style="border:1px solid black" title="Sample image for Kemuri test" alt="Sample image for Kemuri test">
 </p>
 
 <h3>Setup:</h3>

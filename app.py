@@ -62,7 +62,8 @@ def index():
             status_style = "style=border-width:2px;border-style:solid;background:red;color:white;line-height:inherit"
 
         placeholder_parm = ':' + answer
-            
+
+        puzzle = list(puzzle.upper())
         return render_template('index.html', solution=solution, puzzle=puzzle, status=status, status_style=status_style, placeholder_parm=placeholder_parm, length=len(puzzle))
 
 if __name__ == '__main__':
