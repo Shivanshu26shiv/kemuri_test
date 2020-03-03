@@ -10,9 +10,15 @@ body, html {
 }
 
 * {
-  box-sizing: border-box !important;
+  /* box-sizing: border-box !important;*/
   font-size: 16px;
   font-family: Arial;  
+}
+
+.toppane{
+    text-align: center;
+    height: 100px;
+    border-collapse: collapse;
 }
 
 .column {
@@ -29,7 +35,6 @@ body, html {
 }
 
 img {
-	border: 1px solid;
 	width: 50px;
     height: 50px;
     float: left;
@@ -89,9 +94,3 @@ input[type=submit]:hover {
 }
 
 
-@media screen and (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
-}

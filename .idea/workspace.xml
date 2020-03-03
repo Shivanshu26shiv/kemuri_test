@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0c324db-af60-474a-a6f3-c3e78dddc51a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/anagram_webapp.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/main.css" afterPath="$PROJECT_DIR$/static/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp_folder/brave_rvbae" afterPath="" />
     </list>
     <ignored path="Kemuri test.iws" />
     <ignored path=".idea/workspace.xml" />

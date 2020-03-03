@@ -28,16 +28,21 @@ def index():
             rand_value = random.randrange(1, len(word_dict))
             solution = word_dict[rand_value]
             puzzle = ''.join(random.sample(solution, len(solution)))
-            if puzzle != solution and 8 > len(solution) > 3 and regex.search(puzzle) == None:
+            if puzzle != solution and puzzle != solution[::-1] and 8 > len(solution) > 3 and regex.search(puzzle) == None:
                 break
 
-        files_to_remove = [os.path.join(folder_name, f) for f in os.listdir(folder_name)]
-        for f in files_to_remove:
-            os.remove(f)
-            
+        try:
+            files_to_remove = [os.path.join(folder_name, f) for f in os.listdir(folder_name)]
+            for f in files_to_remove:
+                os.remove(f)
+
+        except FileNotFoundError:
+            os.mkdir(folder_name)
+                        
         open(folder_name+"/"+solution.lower()+'_'+puzzle.lower(), "w")
-        
-        return render_template('index.html', solution=solution, puzzle=puzzle, status_style=status_style, placeholder_parm=placeholder_parm)
+
+        puzzle = list(puzzle.upper())
+        return render_template('index.html', solution=solution, puzzle=puzzle, status_style=status_style, placeholder_parm=placeholder_parm, length=len(puzzle))
     
     elif request.method == 'POST':
         
@@ -58,7 +63,7 @@ def index():
 
         placeholder_parm = ':' + answer
             
-        return render_template('index.html', solution=solution, puzzle=puzzle, status=status, status_style=status_style, placeholder_parm=placeholder_parm)
+        return render_template('index.html', solution=solution, puzzle=puzzle, status=status, status_style=status_style, placeholder_parm=placeholder_parm, length=len(puzzle))
 
 if __name__ == '__main__':
     app.run(debug=True)

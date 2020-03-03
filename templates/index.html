@@ -19,50 +19,63 @@
 </head>
 
 <body>
-<div class="rowmain">
-	<div class='column'>
-		<p style="float: left;">Created for:</p><img src="{{url_for('static', filename='images/kemuri_logo.png')}}" />
-	</div>
-	
-	<div  class="column" style='border: 1px solid grey;margin-top: 10px;'>
-	
+<div style='border: 1px solid; display: inline-block;'>
+	<p style="float: left;">Created for:</p><img src="{{url_for('static', filename='images/kemuri_logo.png')}}" />
+</div>
+
+<br><br>
+	<div class="toppane">
 		<br><br>
 		<label style="display: inline; border-color: white;background-color: #008CBA;color: white">Anagram puzzle</label>
 		<br><br><br><br><br>
-		
-		<label>Puzzle word  <i class='fa fa-arrow-circle-right'></i></label>
-		&nbsp;
-		<label style="font-weight: 700;">{{puzzle}}</label>
-		<br><br>
-
-		<form action="/" method="POST"  class="col-75" autocomplete="off">
-		  <input type="text" id="answer" name="answer" placeholder=" Your answer {{placeholder_parm}}" required>
-		  <input type="submit" value="Submit">
-		</form>
-	
-		<div class="row" style='display: inline-flex;'>
-		
-		<div class="col-75">
-			<form action="/" method="GET" name='new_puzzle'  class="col-75" style="display: inline;">
-			  <input type="submit" id='submit' value="New puzzle">
-			</form>
-		&nbsp;&nbsp;	
-			
-				<input type="submit" value='Solution'  onclick="alert('Solution: {{solution}}'); document.getElementById('submit').click();" />
-		&nbsp;&nbsp;	
-				<!-- <button value='Solution' onclick="alert('Solution: {{solution}} ')">Solution</button>-->
-				<!--<label {{status_style}} >{{status}}</label>-->
-				
-				<label class='fa' {{status_style}} {{status}} />
-				
-			
-			</div>
-			
-		</div>
 	</div>
+	<br><br>
 	
-	<div class='column'></div>
-</div>
+	<div class="rowmain" style='display: grid'>
+		<div class='column'></div>
+		
+		<div  class="column" style='width: auto;'>
+				<br>
+				<!--<label>Puzzle word  <i class='fa fa-arrow-circle-right'></i></label>
+				&nbsp;
+				<label style="font-weight: 700;">{{puzzle}}</label>-->
+				
+				{%for i in range(0, length)%} 
+					<label style="font-weight: 700; font-size:20px">{{puzzle[i]}}</label>
+				{%endfor%} 
+			
+
+			<br><br>
+
+			<form action="/" method="POST"  class="col-75" autocomplete="off">
+			  <input type="text" id="answer" name="answer" placeholder=" Your answer {{placeholder_parm}}" required>
+			  <input type="submit" value="Submit">
+			</form>
+		
+			<div class="row" style='display: inline-flex;'>
+			
+			<div class="col-75">
+		
+				
+					<input type="submit" value='Solution'  onclick="alert('Solution: {{solution}}'); document.getElementById('submit').click();" />
+			&nbsp;&nbsp;	
+					<form action="/" method="GET" name='new_puzzle'  class="col-75" style="display: inline;">
+						<input type="submit" id='submit' value="New puzzle">
+					</form>
+			&nbsp;&nbsp;
+					<!-- <button value='Solution' onclick="alert('Solution: {{solution}} ')">Solution</button>-->
+					<!--<label {{status_style}} >{{status}}</label>-->
+					
+					<label class='fa' {{status_style}} {{status}} />
+					
+				
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class='column'></div>
+	</div>
 	
 </body>
 
